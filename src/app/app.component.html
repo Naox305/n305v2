@@ -1,5 +1,5 @@
 ﻿
-<div (click) = "isMenuOpen = !isMenuOpen" [hidden] = "isMenuOpen === true">
+<div (click) = "isMenuOpen = !isMenuOpen" *ngIf = "isMenuOpen === true">
   <app-about>Loading about...</app-about>
   <app-contact>Loading contact...</app-contact>
   <app-gallery>Loading gallery...</app-gallery>
@@ -11,7 +11,7 @@
 </div>
 
 <div (click) = "isMenuOpen = !isMenuOpen">
-  <div id="Painting" [ngClass]="isMenuOpen === false ? '' : 'pulsating'" title="Black Ink Painting"></div>
+  <div id="Painting" [ngClass]="isMenuOpen === true ? '' : 'pulsating'" title="Black Ink Painting"></div>
 </div>
 
 
