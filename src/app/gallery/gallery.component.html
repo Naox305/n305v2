@@ -1,31 +1,15 @@
-﻿
-<!DOCTYPE html>
-
-<html>
-
-<head>
-    <title></title>
-    <style src="~/Styles/GalleryPageStyles.css"></style>
-</head>
-
-
-<body id="AboutView" ng-controller="GalleryCTRL as app">
+﻿<div id="AboutView">
 
     <div id="PageCover">
 
     </div>
-    <button id="Explore" title="Click to explore" onclick="MakeVisiable()">MENU</button>
+    <button id="Explore" title="Click to explore">MENU</button>
 
     <div id="ItemBox" class="row-fluid">
-        <div class="col-lg-1 GalleryItemsStyle " ng-model="app.galleryItems"
-             ng-repeat="item in app.galleryItems" ng-click="app.GotoUrl'item.ItemURL'">
-
-            <div>
-                <input type="image" src='item.ImageURL' class="ImageItemsStyle" title='item.Name' value='item.Value' />
-                <input type="text" class="DescriptionItemsStyle" value='item.Description' maxlength="1000" />
-            </div>
-
+        <div class="col-lg-1 GalleryItemsStyle" *ngFor="let item of galleryItems">
+            <input (click)="changeLocation(item.ItemURL)" type="image" src="{{item.ImageURL}}" class="ImageItemsStyle" title="{{item.Name}}" value="{{item.Value}}" />
+            <input type="text" class="DescriptionItemsStyle" value="{{item.Description}}" maxlength="1000" />
         </div>
     </div>
-</body>
-</html>
+</div>
+

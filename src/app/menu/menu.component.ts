@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
+import { MenuService } from './menu.service';
 
 @Component({
   selector: 'app-menu',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-  constructor() { }
+  constructor(private menuService: MenuService) { }
 
+  menuSelection = '';
+
+  changeLocation(url: any): void{
+  window.location.href = url;
+  }
+
+menuItems : any[];
   ngOnInit() {
+  this.menuItems = this.menuService.GetMenuJSON();
   }
 
 }

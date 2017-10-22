@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {GalleryService} from './gallery.service';
 
 @Component({
   selector: 'app-gallery',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GalleryComponent implements OnInit {
 
-  constructor() { }
+  constructor(private galleryService: GalleryService) { }
 
-  ngOnInit() {
-  }
+    changeLocation(url: any): void{
+    window.location.href = url;
+    }
+
+  galleryItems : any[];
+
+    ngOnInit() {
+    this.galleryItems = this.galleryService.GetGalleryJSON();
+    }
 
 }

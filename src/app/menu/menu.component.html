@@ -1,18 +1,23 @@
 ﻿
+<div *ngIf="menuSelection === ''">
+  <div id="PageCover">
 
-    <div id="PageCover">
+  </div>
 
+  <div id="ItemBox" class="row-fluid">
+    <div class="col-sm-1 GalleryItemsStyle " *ngFor="let item of menuItems">
+      <div *ngIf="item.Value !== 3">
+        <input (click)="menuSelection = item.Value" type="image" src="{{item.ImageURL}}" class="ImageItemsStyle" title="{{item.Name}}" value="{{item.Value}}" />
+        <input type="text" class="DescriptionItemsStyle" value="{{item.Description}}" maxlength="1000" />
+      </div>
+      <div *ngIf="item.Value === 3">
+        <input (click)="changeLocation(item.ItemURL)" type="image" src="{{item.ImageURL}}" class="ImageItemsStyle" title="{{item.Name}}" value="{{item.Value}}" />
+        <input type="text" class="DescriptionItemsStyle" value="{{item.Description}}" maxlength="1000" />
+      </div>
     </div>
+  </div>
+</div>
 
-    <div id="ItemBox" class="row-fluid">
-        <div class="col-sm-1 GalleryItemsStyle " ng-model="app.menuItems"
-             ng-repeat="item in app.menuItems" ng-click="app.GotoUrl'item.ItemURL'">
-
-            <div>
-                <input type="image" src="item.ImageURL" class="ImageItemsStyle" title="item.Name" value="item.Value" />
-                <input type="text" class="DescriptionItemsStyle" value="item.Description" maxlength="1000" />
-            </div>
-
-        </div>
-    </div>
+<app-about *ngIf="menuSelection === 5">Loading about...</app-about>
+<app-gallery *ngIf="menuSelection === 2">Loading gallery...</app-gallery>
 

@@ -12,6 +12,9 @@ import { GalleryComponent } from './gallery/gallery.component';
 import { LabComponent } from './lab/lab.component';
 import { PrivacypolicyComponent } from './privacypolicy/privacypolicy.component';
 import { ProcessrequestComponent } from './processrequest/processrequest.component';
+import { MenuService } from './menu/menu.service';
+import { GalleryService } from './gallery/gallery.service';
+
 
 @NgModule({
   declarations: [
@@ -30,7 +33,7 @@ import { ProcessrequestComponent } from './processrequest/processrequest.compone
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [MenuService, GalleryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
