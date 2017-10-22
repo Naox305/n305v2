@@ -8,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class PrivacypolicyComponent implements OnInit {
 
   constructor() { }
-
+  changeLocation(url: any): void{
+  window.location.href = url;
+  }
   ngOnInit() {
   }
 

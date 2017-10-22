@@ -10,8 +10,9 @@
   <app-menu *ngIf = "isMenuOpen === true">Loading menu...</app-menu>
 </div>
 <div (click) = "isMenuOpen = !isMenuOpen">
-  <div id="Painting" [ngClass]="isMenuOpen === true ? '' : 'pulsating'" title="Black Ink Painting"></div>
+    <div id="Painting" [ngClass]="isMenuOpen === true ? '' : 'pulsating'" title="Black Ink Painting"></div>
 </div>
+<router-outlet></router-outlet>
 
 
 

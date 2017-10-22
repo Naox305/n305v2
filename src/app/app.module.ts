@@ -2,6 +2,7 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -15,6 +16,10 @@ import { ProcessrequestComponent } from './processrequest/processrequest.compone
 import { MenuService } from './menu/menu.service';
 import { GalleryService } from './gallery/gallery.service';
 
+const appRoutes: Routes = [
+  { path: 'Home/PrivacyPolicy', component: PrivacypolicyComponent },
+  { path: 'privacy-policy', component: PrivacypolicyComponent }
+];
 
 @NgModule({
   declarations: [
@@ -29,9 +34,14 @@ import { GalleryService } from './gallery/gallery.service';
     ProcessrequestComponent
   ],
   imports: [
+  RouterModule.forRoot(
+        appRoutes,
+        { enableTracing: true } // <-- debugging purposes only
+      ),
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule
   ],
   providers: [MenuService, GalleryService],
   bootstrap: [AppComponent]
